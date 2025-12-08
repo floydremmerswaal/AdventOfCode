@@ -72,7 +72,7 @@ fn count_from_loc(
     }
 
     known_values.insert((x, y), 1);
-    return 1;
+    1
 }
 
 fn main() {
