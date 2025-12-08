@@ -26,7 +26,7 @@ fn distance(p1: (usize, usize, usize), p2: (usize, usize, usize)) -> f32 {
     let d2 = (y1 - y2).pow(2);
     let d3 = (z1 - z2).pow(2);
 
-    return f32::sqrt((d1 as f32) + (d2 as f32) + (d3 as f32));
+    f32::sqrt((d1 as f32) + (d2 as f32) + (d3 as f32))
 }
 
 fn part_1(top_n: &[((usize, usize, usize), (usize, usize, usize), f32)]) {
@@ -56,9 +56,7 @@ fn part_1(top_n: &[((usize, usize, usize), (usize, usize, usize), f32)]) {
             let mut l = x.0;
             let mut r = x.1;
             if con2 {
-                let x = l;
-                l = r;
-                r = x;
+                std::mem::swap(&mut l, &mut r);
             }
 
             let idx = sets.iter().position(|set| set.contains(&l)).unwrap();
@@ -110,9 +108,7 @@ fn part_2(connections: &[((usize, usize, usize), (usize, usize, usize), f32)], n
             let mut l = x.0;
             let mut r = x.1;
             if con2 {
-                let x = l;
-                l = r;
-                r = x;
+                std::mem::swap(&mut l, &mut r);
             }
 
             let idx = sets.iter().position(|set| set.contains(&l)).unwrap();
